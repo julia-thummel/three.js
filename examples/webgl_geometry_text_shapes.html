@@ -67,11 +67,13 @@
 						side: THREE.DoubleSide
 					} );
 
-					var message = "   Three.js\nSimple text.";
+					var message = " Hello world ";
 
 					var shapes = font.generateShapes( message, 100, 2 );
 
 					var geometry = new THREE.ShapeGeometry( shapes );
+
+
 
 					geometry.computeBoundingBox();
 
@@ -118,7 +120,7 @@
 
 						var points = shape.getPoints();
 						var geometry = new THREE.BufferGeometry().setFromPoints( points );
-						
+
 						geometry.translate( xMid, 0, 0 );
 
 						var lineMesh = new THREE.Line( geometry, matDark );

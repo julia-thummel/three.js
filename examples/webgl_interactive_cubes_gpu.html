@@ -12,26 +12,14 @@
 				overflow: hidden;
 			}
 
-			.info {
-				position: absolute;
-				background-color: black;
-				opacity: 0.8;
-				color: white;
-				text-align: center;
-				top: 0px;
-				width: 100%;
-			}
-
-			.info a {
-				color: #00ffff;
 			}
 		</style>
 	</head>
 	<body>
 
-		<div class="info">
+		<!-- <div class="info">
 			<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - gpu picking
-		</div>
+		</div> -->
 
 		<div id="container"></div>
 
@@ -72,7 +60,7 @@
 				controls.dynamicDampingFactor = 0.3;
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xffffff );
+				scene.background = new THREE.Color( 0x201f1f );
 
 				pickingScene = new THREE.Scene();
 				pickingTexture = new THREE.WebGLRenderTarget( window.innerWidth, window.innerHeight );
@@ -111,7 +99,7 @@
 				var matrix = new THREE.Matrix4();
 				var quaternion = new THREE.Quaternion();
 
-				for ( var i = 0; i < 5000; i ++ ) {
+				for ( var i = 0; i < 500; i ++ ) {
 
 					var position = new THREE.Vector3();
 					position.x = Math.random() * 10000 - 5000;
@@ -133,7 +121,7 @@
 
 					// give the geom's vertices a random color, to be displayed
 
-					applyVertexColors( geom, color.setHex( Math.random() * 0xffffff ) );
+					applyVertexColors( geom, color.setHex( 0xffffff ) );
 
 					geometry.merge( geom, matrix );
 

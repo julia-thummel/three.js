@@ -2,29 +2,19 @@
 <html lang="en">
 	<head>
 		<title>three.js webgl - gpgpu - flocking</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- <meta charset="utf-8"> -->
+		<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
 		<style>
 			body {
-				background-color: #ffffff;
-				margin: 0px;
 				overflow: hidden;
-				font-family:Monospace;
-				font-size:13px;
-				text-align:center;
-				text-align:center;
-				cursor: pointer;
 			}
 
-			a {
+			/* a {
 				color:#0078ff;
-			}
+			} */
 
 			#info {
-				color: #000;
-				position: absolute;
-				top: 10px;
-				width: 100%;
+				display: none;
 			}
 
 		</style>
@@ -32,10 +22,7 @@
 	<body>
 
 		<div id="info">
-			<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - <span id="birds"></span> webgl gpgpu birds<br/>
-			Select <span id="options"></span> birds<br/>
-			Move mouse to disturb birds.
-
+			<span id="birds"></span>
 		</div>
 
 		<script src="../build/three.js"></script>
@@ -435,12 +422,12 @@
 			}
 
 
-			var options = '';
-			for (i=1; i<7; i++) {
-				var j = Math.pow(2, i);
-				options += '<a href="#" onclick="return change(' + j + ')">' + (j * j) + '</a> ';
-			}
-			document.getElementById('options').innerHTML = options;
+			// var options = '';
+			// for (i=1; i<7; i++) {
+			// 	var j = Math.pow(2, i);
+			// 	options += '<a href="#" onclick="return change(' + j + ')">' + (j * j) + '</a> ';
+			// }
+			// document.getElementById('options').innerHTML = options;
 
 			var last = performance.now();
 
@@ -474,7 +461,7 @@
 				initComputeRenderer();
 
 				stats = new Stats();
-				container.appendChild( stats.dom );
+				// container.appendChild( stats.dom );
 
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
@@ -486,32 +473,32 @@
 
 
 
-				var gui = new dat.GUI();
+				// var gui = new dat.GUI();
 
 
-				var effectController = {
-					seperation: 20.0,
-					alignment: 20.0,
-					cohesion: 20.0,
-					freedom: 0.75
-				};
+				// var effectController = {
+				// 	seperation: 20.0,
+				// 	alignment: 20.0,
+				// 	cohesion: 20.0,
+				// 	freedom: 0.75
+				// };
 
-				var valuesChanger = function() {
+				// var valuesChanger = function() {
+				//
+				// 	velocityUniforms.seperationDistance.value = effectController.seperation;
+				// 	velocityUniforms.alignmentDistance.value = effectController.alignment;
+				// 	velocityUniforms.cohesionDistance.value = effectController.cohesion;
+				// 	velocityUniforms.freedomFactor.value = effectController.freedom;
+				//
+				// };
 
-					velocityUniforms.seperationDistance.value = effectController.seperation;
-					velocityUniforms.alignmentDistance.value = effectController.alignment;
-					velocityUniforms.cohesionDistance.value = effectController.cohesion;
-					velocityUniforms.freedomFactor.value = effectController.freedom;
-
-				};
-
-				valuesChanger();
+				// valuesChanger();
 
 
-				gui.add( effectController, "seperation", 0.0, 100.0, 1.0 ).onChange( valuesChanger );
-				gui.add( effectController, "alignment", 0.0, 100, 0.001 ).onChange( valuesChanger );
-				gui.add( effectController, "cohesion", 0.0, 100, 0.025 ).onChange( valuesChanger );
-				gui.close();
+				// gui.add( effectController, "seperation", 0.0, 100.0, 1.0 ).onChange( valuesChanger );
+				// gui.add( effectController, "alignment", 0.0, 100, 0.001 ).onChange( valuesChanger );
+				// gui.add( effectController, "cohesion", 0.0, 100, 0.025 ).onChange( valuesChanger );
+				// gui.close();
 
 				initBirds();
 
